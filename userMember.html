@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>会員登録</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <script src="/scripts/userMember.js"></script>
+
+  <style>
+    .user-tr {
+      clear: both;
+    }
+
+    .user-input,
+    .user-message {
+      float: left;
+    }
+
+    ul.nav {
+      list-style: none;
+      display: table;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul.nav>li {
+      display: table-cell;
+      border: solid 1px;
+    }
+
+    ul.nav>li:nth-child(1) {
+      width: 50px;
+    }
+
+    ul.nav>li:nth-child(2) {
+      width: 150px;
+    }
+
+    ul.nav>li:nth-child(3) {
+      width: 150px;
+    }
+
+    ul.nav>li:nth-child(4) {
+      width: 150px;
+    }
+
+    ul.nav>li:nth-child(5) {
+      width: 150px;
+    }
+
+    ul.nav>li:nth-child(6) {
+      width: 150px;
+    }
+
+    .user-exp {
+      float: left;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h3><strong>:::会員登録::::</strong></h3>
+
+  <div id="search-box">
+    <input type="text" id="keyword" placeholder="キーワードを入力">
+    <input type="button" id="search" value="検索">
+  </div>
+
+  <div id="dialog" style="display:none;">
+    <!-- 入力画面 -->
+    <div id="input">
+
+      <div class="user-tr">
+        <div class="user-exp" id="userLabel"><label>アカウントID</label></div>
+        <div class="user-input">
+          <input type="text" class="user" id="user_id" maxlength="100">
+        </div>
+        <div class="user-message user-user_id">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class='user-exp'><label>パスワード</label></div>
+        <div class='user-input'>
+          <input type="text" class="user" id="password" maxlength="100">
+        </div>
+        <div class='user-message user-password'>
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class="user-exp"><label>姓</label></div>
+        <div class="user-input">
+          <input type="text" class="user" id="first_name" maxlength="100">
+        </div>
+        <div class="user-message user-first_name">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class="user-exp"><label>名</label></div>
+        <div class="user-input">
+          <input type="text" class="user" id="last_name" maxlength="100">
+        </div>
+        <div class="user-message user-last_name">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class="user-exp"><label>住所</label></div>
+        <div class="user-input">
+          <input type="text" class="user" id="address" maxlength="100">
+        </div>
+        <div class="user-message user-address">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class="user-exp"><label>電話番号</label></div>
+        <div class="user-input">
+          <input type="text" class="tel_box" name="tel_box1" maxlength="4" pattern="\d{2,4}"> -
+          <input type="text" class="tel_box" name="tel_box2" maxlength="4" pattern="\d{2,4}"> -
+          <input type="text" class="tel_box" name="tel_box3" maxlength="4" pattern="\d{3,4}">
+        </div>
+        <div class="user-message user-tel">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class="user-exp"><label>性別</label></div>
+        <div class="user-input">
+          <input type="radio" name="radio_gender" value="男" checked="checked" >男
+          <input type="radio" name="radio_gender" value="女">女
+        </div>
+        <div class="user-message user-gender">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class="user-exp"><label>生年月日</label></div>
+        <div class="user-input">
+          <select name="birth_year" id="birth_year">
+            <!-- <option value="0"></option> -->
+            <option value="1950">1950</option>
+            <option value="1951">1951</option>
+            <option value="1952">1952</option>
+            <option value="1953">1953</option>
+            <option value="1954">1954</option>
+            <option value="1955">1955</option>
+            <option value="1956">1956</option>
+            <option value="1957">1957</option>
+            <option value="1958">1958</option>
+            <option value="1959">1959</option>
+            <option value="1960">1960</option>
+
+          </select>
+
+          <select name="birth_month" id="birth_month">
+            <!-- <option value="0"></option> -->
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+
+          <select name="birth_day" id="birth_day">
+            <!-- <option value="0"></option> -->
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+          </select>
+        </div>
+        <div class="user-message user-birthday">
+          <label></label>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- 確認画面 -->
+    <div id="confirm">
+
+      <div class="user-tr">
+        <div class="user-exp"><label>アカウントID</label></div>
+        <div class="user-output">
+          <label class="user-user_id-confirm"></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class='user-exp'><label>パスワード</label></div>
+        <div class='user-output'>
+          <label class="user-password-confirm"></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class='user-exp'><label>姓</label></div>
+        <div class='user-output'>
+          <label class="user-first_name-confirm"></label>
+        </div>
+      </div>
+
+
+      <div class="user-tr">
+        <div class='user-exp'><label>名</label></div>
+        <div class='user-output'>
+          <label class="user-last_name-confirm"></label>
+        </div>
+      </div>
+
+
+      <div class="user-tr">
+        <div class='user-exp'><label>住所</label></div>
+        <div class='user-output'>
+          <label class="user-address-confirm"></label>
+        </div>
+      </div>
+
+
+      <div class="user-tr">
+        <div class='user-exp'><label>電話番号</label></div>
+        <div class='user-output'>
+          <label class="user-tel-confirm"></label>
+        </div>
+      </div>
+
+      <div class="user-tr">
+        <div class='user-exp'><label>性別</label></div>
+        <div class='user-output'>
+          <label class="user-gender-confirm"></label>
+        </div>
+        <div class='user-message user-gender'>
+          <label></label>
+        </div>
+      </div>
+
+
+      <div class="user-tr">
+        <div class='user-exp'><label>生年月日</label></div>
+        <div class='user-output'>
+          <label class="user-birthday-confirm"></label>
+        </div>
+        <div class='user-message user-birthday'>
+          <label></label>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- 完了画面 -->
+    <div id="finish">
+      完了しました
+    </div>
+
+  </div>
+
+  <div class="user-tr">
+    <div></div>
+    <div style="float: left">
+      <input type="button" class="user" id="add" value="追加">
+    </div>
+    <div style="float: left">
+      <input type="button" class="user" id="fix" value="修正">
+    </div>
+    <div style="float: left">
+      <input type="button" class="user" id="delete" value="削除">
+    </div>
+  </div>
+
+  <div style="clear: both;">
+
+    <div id="register">
+      <!-- <ul class="nav">
+      <li>アカウントID</li>
+      <li>パスワード</li>
+    </ul>
+    <ul class="nav">
+      <li>user1</li>
+      <li>password1</li>
+    </ul>
+    <ul class="nav">
+      <li>user2</li>
+      <li>password2</li>
+    </ul> -->
+    </div>
+
+    <script>
+      "use strict";
+
+      console.log('start script');
+
+      $(function () {
+
+        $.getScript('/scripts/userMember.js');
+        // 初期化 start処理
+        // jQuery
+        // マルチブラウザ対応（IE,Chrome,Safari・・・etc)
+
+        refleshList();
+
+        //---------------------
+        // イベント関連
+        //---------------------
+
+        $('#add').on('click', function () {
+          $('#user_id').val('');
+          $('#password').val('');
+          $('#first_name').val('');
+          $('#last_name').val('');
+          $('#address').val('');
+          $('.tel_box').val('');
+          $('#gender').val('');
+          $('#birth_year option:selected').val('');
+          $('#birth_month option:selected').val('');
+          $('#birth_day option:selected').val('');
+
+          // 活性
+          $('#user_id').prop('disabled', false);
+
+          $('#input').show();
+          $('#confirm').hide();
+          $('#finish').hide();
+
+          $('#dialog').dialog({
+            modal: true, // モーダル表示
+            title: "追加", // タイトル
+            width: 550,
+            buttons: { //ボタン
+              "OK": function () {
+
+                if ($('#input').is(':visible') == true) {
+
+                  
+                  inputFunc($('.tel_box').val());
+
+                } else if ($('#confirm').is(':visible') == true) {
+
+                  confirmFunc();
+
+                } else if ($('#finish').is(':visible') == true) {
+
+                  finishFunc();
+                  $(this).dialog("close");
+
+                }
+              },
+              "キャンセル": function () {
+                $(this).dialog('close');
+              }
+            }
+          });
+
+        });
+
+        // --------------------
+        // 削除処理
+        // --------------------
+        $('#delete').on('click', function () {
+
+          if (confirm('削除しますか?') == true) {
+
+            // {
+            //   "userIds":["user1","user3"]
+            // }
+
+            let checkedUsers = [];
+            $(':checkbox:checked').each(function () {
+              let $checkbox = $(this);
+              checkedUsers.push($checkbox.val());
+            });
+
+            let jsonData = {
+              "userIds": checkedUsers
+            };
+            let postData = JSON.stringify(jsonData);
+
+            $.ajax({
+              url: 'userDelete.php',
+              type: 'post',
+              dataType: 'json',
+              contentType: 'application/json',
+              data: postData,
+              // async: false
+            }).done(function (data) {
+              if (data.status == 'success') {
+                // 一覧更新
+                refleshList();
+              }
+            }).fail(function () {
+              alert('error');
+            });
+
+            // // (1)ストレージデータからユーザー配列復元する
+            // let storageVal = sessionStorage.getItem('userList');
+            // let userList = [];
+            // if (storageVal != null) {
+            //   userList = JSON.parse(storageVal);
+            // }
+
+            // // (2)選択されたチェックボックスを取得する
+            // $(':checkbox:checked').each(function () {
+            //   let $checkbox = $(this);
+            //   // (3)チェックボックスの値を取得する
+            //   console.log('$checkbox.val()=' + $checkbox.val());
+
+            //   // (4)ユーザー配列データから(3)の値を検索する
+            //   let delIndex = -1;
+            //   $.each(userList, function (index) {
+            //     let user = this;
+            //     if (user.user_id == $checkbox.val()) {
+            //       delIndex = index;
+            //       return false;
+            //     }
+            //   });
+
+            //   // (5)(4)のユーザー配列データを削除する
+            //   if (delIndex >= 0) {
+            //     // ユーザー配列から選択されたデータを削除する
+            //     userList.splice(delIndex, 1);
+            //   }
+
+            // });
+
+            // (6)ストレージデータを更新する
+            // sessionStorage.setItem('userList', JSON.stringify(userList));
+
+            // 一覧再表示
+            // refleshList();
+
+          }
+
+        });
+
+        // --------------------
+        // 修正処理
+        // --------------------
+        $('#fix').on('click', function () {
+          let $checkbox = $(':checkbox:checked:first');
+
+          let userList = getUserStorage();
+
+          let fixIndex = -1;
+          $.each(userList, function (index) {
+            let user = this;
+            if (user.user_id == $checkbox.val()) {
+              fixIndex = index;
+              return false;
+            }
+          });
+
+          console.log(userList[fixIndex]);
+          
+          $('#user_id').val(userList[fixIndex].user_id);
+          $('#password').val(userList[fixIndex].password);
+          $('#first_name').val(userList[fixIndex].first_name);
+          $('#last_name').val(userList[fixIndex].last_name);
+          $('#address').val(userList[fixIndex].address);
+          // $('.tel_box').map(function () {
+          //   return $(this).val(userList[fixIndex].tel);
+          // });
+
+          const tel_split = (userList[fixIndex].tel).split('-')
+          $('input[name="tel_box1"]').val(tel_split[0]);
+          $('input[name="tel_box2"]').val(tel_split[1]);
+          $('input[name="tel_box3"]').val(tel_split[2]);
+
+          if(userList[fixIndex].gender=="m"){
+            $('input[value="男"]').prop('checked', true);
+          }　else if (userList[fixIndex].gender=="f"){
+            $('input[value="女"]').prop('checked', true);
+          } else {
+            ('input[value="男"]').prop('checked', true);
+          }
+
+          const birthday_split = (userList[fixIndex].birthday).split('/')
+          $('#birth_year option:selected').val(birthday_split[0]);
+          $('#birth_month option:selected').val(birthday_split[1]);
+          $('#birth_day option:selected').val(birthday_split[2]);
+
+          // 非活性
+          $('#user_id').prop('disabled', true);
+
+          $('#input').show();
+          $('#confirm').hide();
+          $('#finish').hide();
+
+          $('#dialog').dialog({
+            modal: true, // モーダル表示
+            title: '修正', // タイトル
+            width: 550,
+            buttons: { //ボタン
+              'OK': function () {
+
+                if ($('#input').is(':visible') == true) {
+
+                  inputFunc();
+
+                } else if ($('#confirm').is(':visible') == true) {
+
+                  fixConfirmFunc(fixIndex);
+
+                } else if ($('#finish').is(':visible') == true) {
+
+                  finishFunc();
+                  $(this).dialog("close");
+
+                }
+              },
+              'キャンセル': function () {
+                $(this).dialog('close');
+              }
+            }
+          });
+        });
+
+        $('#search').on('click', function () {
+          searchFunc();
+        });
+
+      });
+
+      console.log('end script');
+    </script>
+
+</body>
+
+</html>
