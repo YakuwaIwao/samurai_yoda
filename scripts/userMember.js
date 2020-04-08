@@ -75,7 +75,7 @@ let refleshList = function (data) {
       } else if (user.gender == "f") {
         user.gender = "女";
       } else {
-        user.gender = " ";
+        user.gender = "男";
       };
 
       // <input type="checkbox" >
@@ -135,15 +135,15 @@ let inputFunc = function (str) {
   let birth_day = $('#birth_day').val();
   let birthday = birth_year + "/" + birth_month + "/" + birth_day;
 
-  // if (str.match(/^[A-Za-z0-9]*$/)) {
-  //   errorFlg = false;
-  // } else {
-  //   alert("半角数字で入力して下さい。");
-  //   errorFlg = true;
-  // }
+  let errorFlg = false;
+  if (str.match(/^[A-Za-z0-9]*$/)) {
+    errorFlg = false;
+  } else {
+    alert("半角数字で入力して下さい。");
+    errorFlg = true;
+  }
 
   $('.user-message label').text('');
-  let errorFlg = false;
   if (user_id == '') {
     $('.user-message.user-user_id label').text('未入力です');
     errorFlg = true;
@@ -219,7 +219,7 @@ let confirmFunc = function () {
   } else if (gender == "女") {
     gender = "f";
   } else {
-    gender = " ";
+    gender = "m";
   }
 
   //jsonデータ  新規に追加したい
