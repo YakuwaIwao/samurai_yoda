@@ -5,7 +5,7 @@ require 'dbAccess.php';
 $json_string = file_get_contents('php://input');//まず文字列で受け取る　ヘッダーのコンテンツの中身を全部読み込む　リクエストのbodyの中身
 $contents = json_decode($json_string);
 
-$sql = 'select id, user_id ,password, first_name, last_name, address, tel, gender, birth_year, birth_month, birth_day, sys_date from tbl_users where user_id like ? order by sys_date desc';
+$sql = 'select id, user_id ,password, first_name, last_name, address, tel, gender, birthday, sys_date from tbl_users where user_id like ? order by sys_date desc';
 $stmt = $pdo->prepare($sql);//SQL ステートメントを実行し、結果セットを PDOStatement オブジェクトとして返す
 //$stmt->bindValue(':user_id', $contents->user_id, PDO::PARAM_STR); % を入れたいけど加工できないからexecuteに直接値を代入
 $stmt->execute(array($contents->user_id.'%'));
