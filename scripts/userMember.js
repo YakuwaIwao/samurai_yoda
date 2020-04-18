@@ -59,9 +59,9 @@ let refleshList = function (data) {
 
       //三項演算子
       let fullName =
-        (user.first_name != null ? user.first_name : " ") +
+        (user.first_name != null ? user.first_name : "未設定") +
         " " +
-        (user.last_name != null ? user.last_name : " ");
+        (user.last_name != null ? user.last_name : "未設定");
 
       //  let tmpName = "";
       //  if(user.first_name != null) {
@@ -119,6 +119,7 @@ let refleshList = function (data) {
 };
 
 let inputFunc = function (str) {
+  $('.user-message label').text('');
 
   // 入力画面のOKボタン
   let user_id = $('#user_id').val();
@@ -136,14 +137,13 @@ let inputFunc = function (str) {
   let birthday = birth_year + "/" + birth_month + "/" + birth_day;
 
   let errorFlg = false;
-  if (str.match(/^[A-Za-z0-9]*$/)) {
+  if (str.match(/^[0-9]*$/)) {
     errorFlg = false;
   } else {
-    alert("半角数字で入力して下さい。");
+    $('.user-message.user-tel label').text('半角数字で入力して下さい');
     errorFlg = true;
   }
 
-  $('.user-message label').text('');
   if (user_id == '') {
     $('.user-message.user-user_id label').text('未入力です');
     errorFlg = true;

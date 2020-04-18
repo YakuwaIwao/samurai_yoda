@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-  <script src="/scripts/userMember.js"></script>
+  <script src="/scripts/userMember.js?dummy22020"></script>
 
   <style>
     .user-tr {
@@ -89,11 +89,11 @@
       </div>
 
       <div class="user-tr">
-        <div class='user-exp'><label>パスワード</label></div>
-        <div class='user-input'>
+        <div class="user-exp"><label>パスワード</label></div>
+        <div class="user-input">
           <input type="text" class="user" id="password" maxlength="100">
         </div>
-        <div class='user-message user-password'>
+        <div class="user-message user-password">
           <label></label>
         </div>
       </div>
@@ -131,9 +131,9 @@
       <div class="user-tr">
         <div class="user-exp"><label>電話番号</label></div>
         <div class="user-input">
-          <input type="text" class="tel_box" name="tel_box1" maxlength="4" pattern="\d{2,4}"> -
-          <input type="text" class="tel_box" name="tel_box2" maxlength="4" pattern="\d{2,4}"> -
-          <input type="text" class="tel_box" name="tel_box3" maxlength="4" pattern="\d{3,4}">
+          <input type="tel" class="tel_box" name="tel_box1" size="6" maxlength="4" pattern="\d{2,4}"> -
+          <input type="tel" class="tel_box" name="tel_box2" size="6" maxlength="4" pattern="\d{2,4}"> -
+          <input type="tel" class="tel_box" name="tel_box3" size="6" maxlength="4" pattern="\d{3,4}">
         </div>
         <div class="user-message user-tel">
           <label></label>
@@ -143,7 +143,7 @@
       <div class="user-tr">
         <div class="user-exp"><label>性別</label></div>
         <div class="user-input">
-          <input type="radio" name="radio_gender" value="男" checked="checked" >男
+          <input type="radio" name="radio_gender" value="男" checked="checked">男
           <input type="radio" name="radio_gender" value="女">女
         </div>
         <div class="user-message user-gender">
@@ -172,15 +172,15 @@
 
           <select name="birth_month" id="birth_month">
             <!-- <option value="0"></option> -->
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
             <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
@@ -188,15 +188,15 @@
 
           <select name="birth_day" id="birth_day">
             <!-- <option value="0"></option> -->
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
             <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
@@ -240,60 +240,60 @@
       </div>
 
       <div class="user-tr">
-        <div class='user-exp'><label>パスワード</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>パスワード</label></div>
+        <div class="user-output">
           <label class="user-password-confirm"></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class='user-exp'><label>姓</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>姓</label></div>
+        <div class="user-output">
           <label class="user-first_name-confirm"></label>
         </div>
       </div>
 
 
       <div class="user-tr">
-        <div class='user-exp'><label>名</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>名</label></div>
+        <div class="user-output">
           <label class="user-last_name-confirm"></label>
         </div>
       </div>
 
 
       <div class="user-tr">
-        <div class='user-exp'><label>住所</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>住所</label></div>
+        <div class="user-output">
           <label class="user-address-confirm"></label>
         </div>
       </div>
 
 
       <div class="user-tr">
-        <div class='user-exp'><label>電話番号</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>電話番号</label></div>
+        <div class="user-output">
           <label class="user-tel-confirm"></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class='user-exp'><label>性別</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>性別</label></div>
+        <div class="user-output">
           <label class="user-gender-confirm"></label>
         </div>
-        <div class='user-message user-gender'>
+        <div class="user-message user-gender">
           <label></label>
         </div>
       </div>
 
 
       <div class="user-tr">
-        <div class='user-exp'><label>生年月日</label></div>
-        <div class='user-output'>
+        <div class="user-exp"><label>生年月日</label></div>
+        <div class="user-output">
           <label class="user-birthday-confirm"></label>
         </div>
-        <div class='user-message user-birthday'>
+        <div class="user-message user-birthday">
           <label></label>
         </div>
       </div>
@@ -321,7 +321,7 @@
     </div>
   </div>
 
-  <div style="clear: both;">
+  <div style="clear: both;"></div>
 
     <div id="register">
       <!-- <ul class="nav">
@@ -357,6 +357,7 @@
         //---------------------
 
         $('#add').on('click', function () {
+          // $('.user-message label').text('');
           $('#user_id').val('');
           $('#password').val('');
           $('#first_name').val('');
@@ -364,9 +365,10 @@
           $('#address').val('');
           $('.tel_box').val('');
           $('#gender').val('');
-          $('#birth_year').val('1950');
-          $('#birth_month').val('1');
-          $('#birth_day').val('1');
+          $('input[value="男"]').prop('checked', true);
+          $('#birth_year').val('');
+          $('#birth_month').val('');
+          $('#birth_day').val('');
 
           // 活性
           $('#user_id').prop('disabled', false);
@@ -384,7 +386,7 @@
 
                 if ($('#input').is(':visible') == true) {
 
-                  
+
                   inputFunc($('.tel_box').val());
 
                 } else if ($('#confirm').is(':visible') == true) {
@@ -502,34 +504,49 @@
             }
           });
 
-          console.log(userList[fixIndex]);
-          
           $('#user_id').val(userList[fixIndex].user_id);
           $('#password').val(userList[fixIndex].password);
+
           $('#first_name').val(userList[fixIndex].first_name);
-          $('#last_name').val(userList[fixIndex].last_name);
+          $('#last_name').val(userList[fixIndex].last_name)
           $('#address').val(userList[fixIndex].address);
           // $('.tel_box').map(function () {
           //   return $(this).val(userList[fixIndex].tel);
           // });
 
-          const tel_split = (userList[fixIndex].tel).split('-')
-          $('input[name="tel_box1"]').val(tel_split[0]);
-          $('input[name="tel_box2"]').val(tel_split[1]);
-          $('input[name="tel_box3"]').val(tel_split[2]);
+          if (userList[fixIndex].tel == null) {
+            $('input[name="tel_box1"]').val("");
+            $('input[name="tel_box2"]').val("");
+            $('input[name="tel_box3"]').val("");
+          } else {
+            const tel_split = (userList[fixIndex].tel).split('-')
+            $('input[name="tel_box1"]').val(tel_split[0]);
+            $('input[name="tel_box2"]').val(tel_split[1]);
+            $('input[name="tel_box3"]').val(tel_split[2]);
+          };
 
-          if(userList[fixIndex].gender=="m"){
+          if (userList[fixIndex].gender == "m") {
             $('input[value="男"]').prop('checked', true);
-          }　else if (userList[fixIndex].gender=="f"){
+          } else if (userList[fixIndex].gender == "f") {
             $('input[value="女"]').prop('checked', true);
           } else {
-            ('input[value="男"]').prop('checked', true);
+            $('input[value="男"]').prop('checked', true);
           }
 
-          const birthday_split = (userList[fixIndex].birthday).split('/')
-          $('#birth_year option:selected').val(birthday_split[0]);
-          $('#birth_month option:selected').val(birthday_split[1]);
-          $('#birth_day option:selected').val(birthday_split[2]);
+          if (userList[fixIndex].birthday == null) {
+            $('#birth_year').val('');
+            $('#birth_month').val('');
+            $('#birth_day').val('');
+          } else {
+            const birthday_split = (userList[fixIndex].birthday).split('-')
+            $('#birth_year').val(birthday_split[0]);
+            $('#birth_month').val(birthday_split[1]);
+            $('#birth_day').val(birthday_split[2]);
+
+            console.log(userList[fixIndex].birthday);
+            console.log(birthday_split);
+          };
+
 
           // 非活性
           $('#user_id').prop('disabled', true);
@@ -547,7 +564,7 @@
 
                 if ($('#input').is(':visible') == true) {
 
-                  inputFunc();
+                  inputFunc($('.tel_box').val());
 
                 } else if ($('#confirm').is(':visible') == true) {
 
