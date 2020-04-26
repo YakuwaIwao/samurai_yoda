@@ -210,7 +210,7 @@ let confirmFunc = function () {
   let birth_year = $('#birth_year').val();
   let birth_month = $('#birth_month').val();
   let birth_day = $('#birth_day').val();
-  let birthday = birth_year + "/" + birth_month + "/" + birth_day;
+  let birthday = birth_year + "-" + birth_month + "-" + birth_day;
 
   //let userList = getUserStorage();
 
@@ -273,7 +273,7 @@ let fixConfirmFunc = function (fixIndex) {
   let birth_year = $('#birth_year').val();
   let birth_month = $('#birth_month').val();
   let birth_day = $('#birth_day').val();
-  let birthday = birth_year + "/" + birth_month + "/" + birth_day;
+  let birthday = birth_year + "-" + birth_month + "-" + birth_day;
 
   let user = {
     'user_id': user_id,

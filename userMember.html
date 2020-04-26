@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-  <script src="/scripts/userMember.js?dummy22020"></script>
+  <script src="/scripts/userMember.js?dummy20200426"></script>
 
   <style>
     .user-tr {
@@ -323,8 +323,8 @@
 
   <div style="clear: both;"></div>
 
-    <div id="register">
-      <!-- <ul class="nav">
+  <div id="register">
+    <!-- <ul class="nav">
       <li>アカウントID</li>
       <li>パスワード</li>
     </ul>
@@ -336,82 +336,88 @@
       <li>user2</li>
       <li>password2</li>
     </ul> -->
-    </div>
+  </div>
 
-    <script>
-      "use strict";
+  <script>
+    "use strict";
 
-      console.log('start script');
+    console.log('start script');
 
-      $(function () {
+    $(function () {
 
-        $.getScript('/scripts/userMember.js');
-        // 初期化 start処理
-        // jQuery
-        // マルチブラウザ対応（IE,Chrome,Safari・・・etc)
+      $.getScript('/scripts/userMember.js');
+      // 初期化 start処理
+      // jQuery
+      // マルチブラウザ対応（IE,Chrome,Safari・・・etc)
 
-        refleshList();
+      refleshList();
 
-        //---------------------
-        // イベント関連
-        //---------------------
+      //---------------------
+      // イベント関連
+      //---------------------
 
-        $('#add').on('click', function () {
-          // $('.user-message label').text('');
-          $('#user_id').val('');
-          $('#password').val('');
-          $('#first_name').val('');
-          $('#last_name').val('');
-          $('#address').val('');
-          $('.tel_box').val('');
-          $('#gender').val('');
-          $('input[value="男"]').prop('checked', true);
-          $('#birth_year').val('');
-          $('#birth_month').val('');
-          $('#birth_day').val('');
+      $('#add').on('click', function () {
+        // $('.user-message label').text('');
+        $('#user_id').val('');
+        $('#password').val('');
+        $('#first_name').val('');
+        $('#last_name').val('');
+        $('#address').val('');
+        $('.tel_box').val('');
+        $('#gender').val('');
+        $('input[value="男"]').prop('checked', true);
+        $('#birth_year').val('');
+        $('#birth_month').val('');
+        $('#birth_day').val('');
 
-          // 活性
-          $('#user_id').prop('disabled', false);
+        // 活性
+        $('#user_id').prop('disabled', false);
 
-          $('#input').show();
-          $('#confirm').hide();
-          $('#finish').hide();
+        $('#input').show();
+        $('#confirm').hide();
+        $('#finish').hide();
 
-          $('#dialog').dialog({
-            modal: true, // モーダル表示
-            title: "追加", // タイトル
-            width: 550,
-            buttons: { //ボタン
-              "OK": function () {
+        $('#dialog').dialog({
+          modal: true, // モーダル表示
+          title: "追加", // タイトル
+          width: 550,
+          buttons: { //ボタン
+            "OK": function () {
 
-                if ($('#input').is(':visible') == true) {
+              if ($('#input').is(':visible') == true) {
 
 
-                  inputFunc($('.tel_box').val());
+                inputFunc($('.tel_box').val());
 
-                } else if ($('#confirm').is(':visible') == true) {
+              } else if ($('#confirm').is(':visible') == true) {
 
-                  confirmFunc();
+                confirmFunc();
 
-                } else if ($('#finish').is(':visible') == true) {
+              } else if ($('#finish').is(':visible') == true) {
 
-                  finishFunc();
-                  $(this).dialog("close");
+                finishFunc();
+                $(this).dialog("close");
 
-                }
-              },
-              "キャンセル": function () {
-                $(this).dialog('close');
               }
+            },
+            "キャンセル": function () {
+              $(this).dialog('close');
             }
-          });
-
+          }
         });
 
-        // --------------------
-        // 削除処理
-        // --------------------
-        $('#delete').on('click', function () {
+      });
+
+      // --------------------
+      // 削除処理
+      // --------------------
+      $('#delete').on('click', function () {
+        let $checkbox = $(':checkbox:checked:first');
+        let checkbox_count = $(':checkbox:checked').length;
+
+        if (checkbox_count == 0) {
+          alert('削除するユーザーのチェックボックスを選択してください')
+        } else {
 
           if (confirm('削除しますか?') == true) {
 
@@ -484,114 +490,117 @@
             // refleshList();
 
           }
-
-        });
-
-        // --------------------
-        // 修正処理
-        // --------------------
-        $('#fix').on('click', function () {
-          let $checkbox = $(':checkbox:checked:first');
-
-          let userList = getUserStorage();
-
-          let fixIndex = -1;
-          $.each(userList, function (index) {
-            let user = this;
-            if (user.user_id == $checkbox.val()) {
-              fixIndex = index;
-              return false;
-            }
-          });
-
-          $('#user_id').val(userList[fixIndex].user_id);
-          $('#password').val(userList[fixIndex].password);
-
-          $('#first_name').val(userList[fixIndex].first_name);
-          $('#last_name').val(userList[fixIndex].last_name)
-          $('#address').val(userList[fixIndex].address);
-          // $('.tel_box').map(function () {
-          //   return $(this).val(userList[fixIndex].tel);
-          // });
-
-          if (userList[fixIndex].tel == null) {
-            $('input[name="tel_box1"]').val("");
-            $('input[name="tel_box2"]').val("");
-            $('input[name="tel_box3"]').val("");
-          } else {
-            const tel_split = (userList[fixIndex].tel).split('-')
-            $('input[name="tel_box1"]').val(tel_split[0]);
-            $('input[name="tel_box2"]').val(tel_split[1]);
-            $('input[name="tel_box3"]').val(tel_split[2]);
-          };
-
-          if (userList[fixIndex].gender == "m") {
-            $('input[value="男"]').prop('checked', true);
-          } else if (userList[fixIndex].gender == "f") {
-            $('input[value="女"]').prop('checked', true);
-          } else {
-            $('input[value="男"]').prop('checked', true);
-          }
-
-          if (userList[fixIndex].birthday == null) {
-            $('#birth_year').val('');
-            $('#birth_month').val('');
-            $('#birth_day').val('');
-          } else {
-            const birthday_split = (userList[fixIndex].birthday).split('-')
-            $('#birth_year').val(birthday_split[0]);
-            $('#birth_month').val(birthday_split[1]);
-            $('#birth_day').val(birthday_split[2]);
-
-            console.log(userList[fixIndex].birthday);
-            console.log(birthday_split);
-          };
-
-
-          // 非活性
-          $('#user_id').prop('disabled', true);
-
-          $('#input').show();
-          $('#confirm').hide();
-          $('#finish').hide();
-
-          $('#dialog').dialog({
-            modal: true, // モーダル表示
-            title: '修正', // タイトル
-            width: 550,
-            buttons: { //ボタン
-              'OK': function () {
-
-                if ($('#input').is(':visible') == true) {
-
-                  inputFunc($('.tel_box').val());
-
-                } else if ($('#confirm').is(':visible') == true) {
-
-                  fixConfirmFunc(fixIndex);
-
-                } else if ($('#finish').is(':visible') == true) {
-
-                  finishFunc();
-                  $(this).dialog("close");
-
-                }
-              },
-              'キャンセル': function () {
-                $(this).dialog('close');
-              }
-            }
-          });
-        });
-
-        $('#search').on('click', function () {
-          searchFunc();
-        });
-
+        }
       });
 
-      console.log('end script');
-    </script>
+      // --------------------
+      // 修正処理
+      // --------------------
+      $('#fix').on('click', function () {
+        let $checkbox = $(':checkbox:checked:first');
+        let checkbox_count = $(':checkbox:checked').length;
+
+        let userList = getUserStorage();
+
+        let fixIndex = -1;
+        $.each(userList, function (index) {
+          let user = this;
+          if (user.user_id == $checkbox.val()) {
+            fixIndex = index;
+            return false;
+          }
+        });
+
+        if (checkbox_count == 0) {
+          alert('修正するユーザーのチェックボックスを選択してください')
+        };
+
+        $('#user_id').val(userList[fixIndex].user_id);
+        $('#password').val(userList[fixIndex].password);
+
+        $('#first_name').val(userList[fixIndex].first_name);
+        $('#last_name').val(userList[fixIndex].last_name)
+        $('#address').val(userList[fixIndex].address);
+        // $('.tel_box').map(function () {
+        //   return $(this).val(userList[fixIndex].tel);
+        // });
+
+        if (userList[fixIndex].tel == null) {
+          $('input[name="tel_box1"]').val("");
+          $('input[name="tel_box2"]').val("");
+          $('input[name="tel_box3"]').val("");
+        } else {
+          const tel_split = (userList[fixIndex].tel).split('-')
+          $('input[name="tel_box1"]').val(tel_split[0]);
+          $('input[name="tel_box2"]').val(tel_split[1]);
+          $('input[name="tel_box3"]').val(tel_split[2]);
+        };
+
+        if (userList[fixIndex].gender == "m") {
+          $('input[value="男"]').prop('checked', true);
+        } else if (userList[fixIndex].gender == "f") {
+          $('input[value="女"]').prop('checked', true);
+        } else {
+          $('input[value="男"]').prop('checked', true);
+        }
+
+        if (userList[fixIndex].birthday == null) {
+          $('#birth_year').val('');
+          $('#birth_month').val('');
+          $('#birth_day').val('');
+        } else {
+          const birthday_split = (userList[fixIndex].birthday).split('-')
+          $('#birth_year').val(birthday_split[0]);
+          $('#birth_month').val(birthday_split[1]);
+          $('#birth_day').val(birthday_split[2]);
+
+        };
+
+
+        // 非活性
+        $('#user_id').prop('disabled', true);
+
+        $('#input').show();
+        $('#confirm').hide();
+        $('#finish').hide();
+
+        $('#dialog').dialog({
+          modal: true, // モーダル表示
+          title: '修正', // タイトル
+          width: 550,
+          buttons: { //ボタン
+            'OK': function () {
+
+              if ($('#input').is(':visible') == true) {
+
+                inputFunc($('.tel_box').val());
+
+              } else if ($('#confirm').is(':visible') == true) {
+
+                fixConfirmFunc(fixIndex);
+
+              } else if ($('#finish').is(':visible') == true) {
+
+                finishFunc();
+                $(this).dialog("close");
+
+              }
+            },
+            'キャンセル': function () {
+              $(this).dialog('close');
+            }
+          }
+        });
+      });
+
+      $('#search').on('click', function () {
+        searchFunc();
+      });
+
+    });
+
+    console.log('end script');
+  </script>
 
 </body>
 

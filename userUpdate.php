@@ -5,7 +5,6 @@ require 'dbAccess.php';
 //json受け取る
 $json_string = file_get_contents('php://input');//まず文字列で受け取る　ヘッダーのコンテンツの中身を全部読み込む　リクエストのbodyの中身
 $contents = json_decode($json_string);//オブジェクト(json)に変換
-
 $sql = 'UPDATE tbl_users SET password =:password, first_name=:first_name, last_name=:last_name, address=:address, tel=:tel, gender=:gender, birthday=:birthday, sys_date=now() WHERE user_id = :user_id' ;//sql文作る、:user,:password リクエストできた情報を動的にセット、この時点ではただの文字列
 $prepare = $pdo->prepare($sql);//prepareのオブジェクトとして取得
 $prepare->bindValue(':user_id', $contents->user_id, PDO::PARAM_STR);//キー（セットする場所）、バリュー（置換する値）、型(mysqlのカラム)
