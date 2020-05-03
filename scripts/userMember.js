@@ -164,7 +164,7 @@ let inputFunc = function (str) {
     $('.user-message.user-address label').text('未入力です');
     errorFlg = true;
   }
-  if (tel === '') {
+  if (tel === null) {
     $('.user-message.user-tel label').text('未入力です');
     errorFlg = true;
   }
@@ -172,7 +172,7 @@ let inputFunc = function (str) {
     $('.user-message.user-gender label').text('未入力です');
     errorFlg = true;
   }
-  if (birthday === '') {
+  if (birth_year === null | birth_month === null | birth_day === null ) {
     $('.user-message.user-birthday label').text('未入力です');
     errorFlg = true;
   }
@@ -202,7 +202,6 @@ let confirmFunc = function () {
   let first_name = $('#first_name').val();
   let last_name = $('#last_name').val();
   let address = $('#address').val();
-  //let tel = $('.tel_box').val();
   const tel = $('.tel_box').map(function () {
     return $(this).val();
   }).get().join('-');
@@ -274,6 +273,14 @@ let fixConfirmFunc = function (fixIndex) {
   let birth_month = $('#birth_month').val();
   let birth_day = $('#birth_day').val();
   let birthday = birth_year + "-" + birth_month + "-" + birth_day;
+
+  if (gender == "男") {
+    gender = "m";
+  } else if (gender == "女") {
+    gender = "f";
+  } else {
+    gender = "m";
+  }
 
   let user = {
     'user_id': user_id,

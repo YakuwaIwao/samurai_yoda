@@ -517,13 +517,12 @@
 
         $('#user_id').val(userList[fixIndex].user_id);
         $('#password').val(userList[fixIndex].password);
-
         $('#first_name').val(userList[fixIndex].first_name);
         $('#last_name').val(userList[fixIndex].last_name)
         $('#address').val(userList[fixIndex].address);
-        // $('.tel_box').map(function () {
-        //   return $(this).val(userList[fixIndex].tel);
-        // });
+        $('.tel_box').map(function () {
+          return $(this).val(userList[fixIndex].tel);
+        });
 
         if (userList[fixIndex].tel == null) {
           $('input[name="tel_box1"]').val("");
@@ -553,7 +552,6 @@
           $('#birth_year').val(birthday_split[0]);
           $('#birth_month').val(birthday_split[1]);
           $('#birth_day').val(birthday_split[2]);
-
         };
 
 
