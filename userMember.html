@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-  <script src="/scripts/userMember.js?dummy20200426"></script>
+  <script src="scripts/userMember.js?dummy20200426"></script>
 
   <style>
     .user-tr {
@@ -62,6 +62,20 @@
     .user-exp {
       float: left;
     }
+    
+    dl dt{
+      width: 5em;
+      clear:both;
+      position: relative;
+      padding:10px 0;
+      float:left;
+    }
+    
+    dl dd{
+      margin-left: 20px;
+      padding:10px 0;
+    }
+    
   </style>
 
 </head>
@@ -76,84 +90,84 @@
 
   <div id="dialog" style="display:none;">
     <!-- 入力画面 -->
-    <div id="input">
+    <dl id="input">
 
       <div class="user-tr">
-        <div class="user-exp" id="userLabel"><label>アカウントID</label></div>
-        <div class="user-input">
+        <dt class="user-exp" id="userLabel"><label>アカウントID</label></dt>
+        <dd class="user-input">
           <input type="text" class="user" id="user_id" maxlength="100">
-        </div>
+        </dd>
         <div class="user-message user-user_id">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>パスワード</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>パスワード</label></dt>
+        <dd class="user-input">
           <input type="text" class="user" id="password" maxlength="100">
-        </div>
+        </dd>
         <div class="user-message user-password">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>姓</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>姓</label></dt>
+        <dd class="user-input">
           <input type="text" class="user" id="first_name" maxlength="100">
-        </div>
+        </dd>
         <div class="user-message user-first_name">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>名</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>名</label></dt>
+        <dd class="user-input">
           <input type="text" class="user" id="last_name" maxlength="100">
-        </div>
+        </dd>
         <div class="user-message user-last_name">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>住所</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>住所</label></dt>
+        <dd class="user-input">
           <input type="text" class="user" id="address" maxlength="100">
-        </div>
+        </dd>
         <div class="user-message user-address">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>電話番号</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>電話番号</label></dt>
+        <dd class="user-input">
           <input type="tel" class="tel_box" name="tel_box1" size="6" maxlength="4" pattern="\d{2,4}"> -
           <input type="tel" class="tel_box" name="tel_box2" size="6" maxlength="4" pattern="\d{2,4}"> -
           <input type="tel" class="tel_box" name="tel_box3" size="6" maxlength="4" pattern="\d{3,4}">
-        </div>
+        </dd>
         <div class="user-message user-tel">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>性別</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>性別</label></dt>
+        <dd class="user-input">
           <input type="radio" name="radio_gender" value="男" checked="checked">男
           <input type="radio" name="radio_gender" value="女">女
-        </div>
+        </dd>
         <div class="user-message user-gender">
           <label></label>
         </div>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>生年月日</label></div>
-        <div class="user-input">
+        <dt class="user-exp"><label>生年月日</label></dt>
+        <dd class="user-input">
           <select name="birth_year" id="birth_year">
             <!-- <option value="0"></option> -->
             <option value="1950">1950</option>
@@ -220,68 +234,68 @@
             <option value="30">30</option>
             <option value="31">31</option>
           </select>
-        </div>
+        </dd>
         <div class="user-message user-birthday">
           <label></label>
         </div>
       </div>
 
 
-    </div>
+    </dl>
 
     <!-- 確認画面 -->
-    <div id="confirm">
+    <dl id="confirm">
 
       <div class="user-tr">
-        <div class="user-exp"><label>アカウントID</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>アカウントID</label></dt>
+        <dd class="user-output">
           <label class="user-user_id-confirm"></label>
-        </div>
+        </dd>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>パスワード</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>パスワード</label></dt>
+        <dd class="user-output">
           <label class="user-password-confirm"></label>
-        </div>
+        </dd>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>姓</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>姓</label></dt>
+        <dd class="user-output">
           <label class="user-first_name-confirm"></label>
-        </div>
+        </dd>
       </div>
 
 
       <div class="user-tr">
-        <div class="user-exp"><label>名</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>名</label></dt>
+        <dd class="user-output">
           <label class="user-last_name-confirm"></label>
-        </div>
+        </dd>
       </div>
 
 
       <div class="user-tr">
-        <div class="user-exp"><label>住所</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>住所</label></dt>
+        <dd class="user-output">
           <label class="user-address-confirm"></label>
-        </div>
+        </dd>
       </div>
 
 
       <div class="user-tr">
-        <div class="user-exp"><label>電話番号</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>電話番号</label></dt>
+        <dd class="user-output">
           <label class="user-tel-confirm"></label>
-        </div>
+        </dd>
       </div>
 
       <div class="user-tr">
-        <div class="user-exp"><label>性別</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>性別</label></dt>
+        <dd class="user-output">
           <label class="user-gender-confirm"></label>
-        </div>
+        </dd>
         <div class="user-message user-gender">
           <label></label>
         </div>
@@ -289,16 +303,16 @@
 
 
       <div class="user-tr">
-        <div class="user-exp"><label>生年月日</label></div>
-        <div class="user-output">
+        <dt class="user-exp"><label>生年月日</label></dt>
+        <dd class="user-output">
           <label class="user-birthday-confirm"></label>
-        </div>
+        </dd>
         <div class="user-message user-birthday">
           <label></label>
         </div>
       </div>
 
-    </div>
+    </dl>
 
 
     <!-- 完了画面 -->

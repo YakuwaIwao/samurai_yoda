@@ -5,8 +5,8 @@ try {
     // PHP Data Objects データベースに接続,PHP とデータベースサーバーの間の接続
     $pdo = new PDO( 
         'mysql:dbname=myapp;host=127.0.0.1;charset=utf8;port=3306;',
-        'myapp',//user　　パスワード権限低ければ 'root' でOK???
-        'Myapp$myapp123'//password　　パスワード権限低ければ 'root' でOK
+        'root',//user　　パスワード権限低ければ 'root' でOK???
+        ''//password　　パスワード権限低ければ 'root' でOK
     );
     //echo "success connecting DB";
   
