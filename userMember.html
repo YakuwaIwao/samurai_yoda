@@ -62,6 +62,11 @@
     .user-exp {
       float: left;
     }
+
+    .user-input {
+      padding: 10px 10px;
+      margin-right: 10px;
+    }
   </style>
 
 </head>
@@ -338,6 +343,13 @@
     </ul> -->
   </div>
 
+  <form>
+    <input type="file" name="upfile">
+    <button id="upButton" type="button">アップロード</button>
+  </form>
+
+
+
   <script>
     "use strict";
 
@@ -595,6 +607,30 @@
         searchFunc();
       });
 
+    });
+
+    // --------------------
+    // ファイルアップロード
+    // --------------------
+    let $upfile = $('input[name="upfile"]');
+    let fd = new FormData();
+    fd.append("upfile", $upfile.prop('files')[0]);
+
+    $('#upButton').on('click', function () {
+      $.ajax({
+        url: 'fileUpload.php',
+        type: 'post',
+        data: fd,
+        dataType: 'json',
+        contentType: 'application/json',
+        processData: false,
+        contentType: false,
+        cache: false,
+      }).done(function (data) {
+        alert(success);
+      }).fail(function () {
+        alert(error);
+      });
     });
 
     console.log('end script');
